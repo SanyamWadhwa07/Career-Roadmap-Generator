@@ -1,0 +1,200 @@
+Domain,Month,Level,Skill,Recommended Resource 1,Recommended Resource 2,Project
+Machine Learning,1,Beginner,Python Basics,CS50 Python,Automate the Boring Stuff,Build a simple calculator
+Machine Learning,2,Beginner,Data Analysis with Pandas,Data Science with Python,Python for Data Analysis,Analyze COVID-19 data
+Machine Learning,5,Intermediate,Supervised Learning Advanced,StatQuest ML,Hands-On ML with Scikit-Learn,Build a classification model for customer churn
+Machine Learning,6,Intermediate,Unsupervised Learning,Stanford ML Course,Hands-On ML with Scikit-Learn,Cluster customer segments
+Machine Learning,7,Intermediate,Feature Engineering,Feature Engineering for ML,Applied ML in Python,Optimize model performance through feature selection
+Machine Learning,8,Advanced,Deep Learning Fundamentals,Deep Learning Specialization,PyTorch Tutorials,Create an image classifier
+Machine Learning,11,Advanced,Reinforcement Learning,RL Course by Hugging Face,Deep RL by OpenAI,Develop a game-playing AI
+Machine Learning,12,Advanced,MLOps & Deployment,ML System Design,TFX Tutorials,Deploy and monitor a production ML system
+Web Development,1,Beginner,HTML & CSS Basics,CS50 Web,HTML & CSS by Jon Duckett,Build a portfolio website
+Web Development,2,Beginner,CSS Layouts & Responsive Design,CSS Grid by Wes Bos,Responsive Web Design,Create a responsive landing page
+Web Development,3,Beginner,JavaScript Fundamentals,The Odin Project,Eloquent JavaScript,Build an interactive form
+Web Development,5,Intermediate,JavaScript ES6+ Features,ES6 for Everyone,You Don't Know JS,Build a browser-based game
+Web Development,7,Intermediate,React.js Advanced,Fullstack Open,React Patterns,Create a social media dashboard
+Web Development,8,Intermediate,Backend Basics with Node.js,Node.js: The Complete Guide,Express.js Documentation,Build a REST API
+Web Development,9,Advanced,Authentication & Authorization,OAuth 2.0 Simplified,JWT Handbook,Implement a secure login system
+Web Development,11,Advanced,Full-Stack Development,Full Stack Open,MERN Stack Guide,Create an e-commerce platform
+Web Development,12,Advanced,Deployment & DevOps,Docker for Developers,AWS for Frontend Engineers,Deploy a MERN app with CI/CD
+Software Development,1,Beginner,Programming Fundamentals,CS50 Introduction to CS,Programming from the Ground Up,Solve algorithm challenges
+Software Development,3,Beginner,Algorithms Basics,Intro to Algorithms,AlgoExpert,Implement sorting algorithms
+Software Development,5,Intermediate,Testing Fundamentals,Test-Driven Development,The Art of Unit Testing,Write tests for a library
+Software Development,6,Intermediate,Object-Oriented Programming,Java Masterclass,Head First Java,Build a Library Management System
+Software Development,7,Intermediate,Design Patterns,Design Patterns by GoF,Refactoring Guru,Implement common design patterns
+Software Development,8,Advanced,Clean Code & Refactoring,Clean Code by Robert Martin,Refactoring by Martin Fowler,Refactor a legacy codebase
+Software Development,9,Advanced,Concurrency & Parallelism,Java Concurrency in Practice,Python Concurrency,Build a multithreaded application
+Software Development,11,Advanced,Distributed Systems,Designing Data-Intensive Applications,Distributed Systems for Practitioners,Design a chat application
+Software Development,12,Advanced,System Design & Architecture,System Design Interview,Scalability for Dummies,Design a Scalable E-Commerce System
+Cybersecurity,1,Beginner,Networking Basics,Computer Networking by Stanford,Computer Networking: Kurose & Ross,Set up a Virtual Private Network (VPN)
+Cybersecurity,2,Beginner,Linux for Security,Linux Basics for Hackers,The Linux Command Line,Harden a Linux server
+Cybersecurity,4,Intermediate,Web Security,Web Security Academy,OWASP Top 10,Find vulnerabilities in a web app
+Cybersecurity,5,Intermediate,Network Security,Network Security Essentials,Practical Packet Analysis,Configure a firewall and IDS
+Cybersecurity,6,Intermediate,Ethical Hacking,Certified Ethical Hacker (CEH),The Web Application Hacker's Handbook,Perform penetration testing on a website
+Cybersecurity,8,Advanced,Malware Analysis,Practical Malware Analysis,Learning Malware Analysis,Analyze a malware sample in a sandbox environment
+Cybersecurity,9,Advanced,Threat Hunting,Threat Hunting with Elastic Stack,Applied Network Security Monitoring,Create threat detection rules
+Cybersecurity,10,Advanced,Red Team Operations,Red Team Field Manual,Advanced Penetration Testing,Conduct a red team exercise
+Cybersecurity,11,Advanced,Security Architecture,CISSP Study Guide,Zero Trust Networks,Design a secure enterprise architecture
+Cybersecurity,12,Advanced,Security Operations & Incident Response,CompTIA Security+,Incident Response & Computer Forensics,Create an incident response playbook
+AI & Data Science,1,Beginner,Statistics for Data Science,Statistics and Probability,Think Stats,Perform statistical analysis on datasets
+AI & Data Science,2,Beginner,Mathematics for AI,MIT Linear Algebra,Mathematics for Machine Learning,Solve AI-related math problems
+AI & Data Science,3,Beginner,Data Wrangling & Preprocessing,Data Cleaning with Python,Feature Engineering for ML,Clean and prepare messy datasets
+AI & Data Science,5,Intermediate,Advanced Statistics,Statistical Learning,Bayesian Methods for Hackers,Implement statistical models
+AI & Data Science,6,Intermediate,Time Series Analysis,Time Series Forecasting,Practical Time Series Analysis,Build a stock price predictor
+AI & Data Science,8,Advanced,Computer Vision,Deep Learning for Computer Vision,PyTorch for Computer Vision,Create an image recognition system
+AI & Data Science,9,Advanced,Recommender Systems,Recommender Systems Specialization,Building Recommender Systems with ML,Develop a product recommendation engine
+AI & Data Science,10,Advanced,Deep Learning for Structured Data,Fast.ai Tabular,Deep Learning with Structured Data,Build a fraud detection system
+AI & Data Science,12,Advanced,Generative AI & Large Language Models,Stanford CS224N,Deep Learning with Python,Fine-tune a GPT-based model
+Frontend,1,Beginner,HTML Fundamentals,HTML5 Bootcamp,HTML5 Definitive Guide,Build a semantic HTML structure
+Frontend,2,Beginner,CSS Fundamentals,Frontend Masters HTML & CSS,CSS: The Definitive Guide,Style a web page with CSS
+Frontend,4,Beginner,JavaScript Basics,JavaScript.info,JavaScript: The Good Parts,Build interactive UI elements
+Frontend,6,Intermediate,DOM & Browser APIs,JavaScript30 by Wes Bos,MDN Web APIs,Create browser extensions
+Frontend,8,Intermediate,State Management,Redux/Vuex/NgRx Courses,State Management Patterns,Build an interactive dashboard
+Frontend,9,Advanced,Frontend Testing,Testing JavaScript,Testing Library,Create a test suite for components
+Frontend,10,Advanced,TypeScript,TypeScript Documentation,Programming TypeScript,Convert a JS project to TypeScript
+Frontend,12,Advanced,Performance Optimization & Accessibility,Frontend Performance Bootcamp,High Performance Web Sites by Steve Souders,Optimize a web application for speed and accessibility
+Backend,2,Beginner,Server-Side Programming,Node.js Fundamentals,Node.js in Action,Create a RESTful API
+Backend,3,Beginner,API Development,RESTful Web APIs,API Design Patterns,Build a CRUD API
+Backend,4,Intermediate,Database Basics,SQL Fundamentals,Database Design for Mere Mortals,Design a relational database schema
+Backend,6,Intermediate,NoSQL Databases,MongoDB University,NoSQL Distilled,Implement a NoSQL database solution
+Backend,7,Intermediate,Database Design & ORM,SQL and NoSQL Masterclass,SQL Antipatterns,Implement a database with authentication system
+Backend,9,Advanced,API Security & Performance,RESTful API Design,Web API Security,Secure and optimize an API
+Backend,10,Advanced,Message Queues & Event-Driven,Kafka: The Definitive Guide,Designing Event-Driven Systems,Build an event-driven architecture
+Backend,11,Advanced,Service Architecture,Building Microservices,Domain-Driven Design,Create a modular backend system
+Backend,12,Advanced,Microservices & API Design,Microservices Architecture,Building Microservices by Sam Newman,Design and deploy a microservices architecture
+DevOps,1,Beginner,Linux Basics,Linux Journey,The Linux Command Line by William Shotts,Set up a Linux development environment
+DevOps,2,Beginner,Linux & Command Line,Linux Command Line Basics,Linux Administration Handbook,Set up and manage a Linux server
+DevOps,3,Beginner,Version Control with Git,Git Pro,GitHub Training,Set up Git workflows and hooks
+DevOps,4,Intermediate,CI Fundamentals,GitHub Actions/Jenkins/GitLab CI,CI/CD for DevOps,Create a basic CI pipeline
+DevOps,5,Intermediate,Containerization Basics,Docker Fundamentals,Docker Deep Dive,Containerize a web application
+DevOps,7,Intermediate,Kubernetes Basics,Kubernetes Up & Running,Kubernetes in Action,Deploy an app to Kubernetes
+DevOps,8,Advanced,Infrastructure as Code,Terraform Up & Running,Infrastructure as Code by Kief Morris,Provision cloud infrastructure with Terraform
+DevOps,9,Advanced,Configuration Management,Ansible for DevOps,Puppet Beginner's Guide,Automate server configuration
+DevOps,11,Advanced,Site Reliability Engineering,Site Reliability Engineering,The SRE Workbook,Implement SRE practices
+DevOps,12,Advanced,CI/CD & Infrastructure as Code,GitLab CI/CD Course,Continuous Delivery,Set up an end-to-end CI/CD pipeline
+AI Engineer,1,Beginner,Python for AI,Python for Data Science,Think Python,Build data processing scripts
+AI Engineer,3,Beginner,Python & Deep Learning Basics,PyTorch Fundamentals,Hands-On Machine Learning,Build a neural network from scratch
+AI Engineer,4,Intermediate,Deep Learning Frameworks,TensorFlow in Practice,Deep Learning with PyTorch,Create custom neural network architectures
+AI Engineer,7,Intermediate,Model Deployment & MLOps,MLOps Specialization,Building Machine Learning Powered Applications,Deploy an ML model as a REST API
+AI Engineer,8,Advanced,ML System Design,Machine Learning System Design,ML Engineering for Production,Design scalable ML systems
+AI Engineer,9,Advanced,Model Optimization,High Performance ML,TensorRT Programming Guide,Optimize models for inference
+AI Engineer,10,Advanced,Edge AI Deployment,TinyML,AI at the Edge,Deploy models to edge devices
+AI Engineer,11,Advanced,AI Infrastructure,ML at Scale,Design Patterns for High-Available Systems,Build AI infrastructure for large models
+Data Analyst,1,Beginner,Data Analysis Basics,Data Analysis with Python,Analyzing Data with Excel,Clean and analyze a dataset
+Data Analyst,2,Beginner,SQL & Data Querying,SQL for Data Analysis,Practical SQL,Analyze business data with SQL queries
+Data Analyst,3,Beginner,Data Cleaning,Data Cleaning Handbook,Data Preparation for Analytics,Prepare messy data for analysis
+Data Analyst,5,Intermediate,Data Visualization Basics,Data Visualization with Python,Tableau Fundamentals,Create basic data visualizations
+Data Analyst,6,Intermediate,Data Visualization & Dashboard Creation,Tableau Fundamentals,Storytelling with Data,Create an interactive business dashboard
+Data Analyst,8,Advanced,Advanced SQL & Data Warehousing,SQL for Data Warehousing,Kimball's Data Warehouse Toolkit,Design a data warehouse schema
+Data Analyst,10,Advanced,A/B Testing,Trustworthy Online Controlled Experiments,Experimentation Works,Design and analyze A/B tests
+Data Analyst,11,Advanced,Statistical Modeling,Statistical Learning,Data Analysis with R,Build predictive models for business
+Data Analyst,12,Advanced,Statistical Analysis & Hypothesis Testing,Business Statistics Course,Naked Statistics by Charles Wheelan,Conduct A/B tests for business optimization
+Android,2,Beginner,Kotlin Fundamentals,Kotlin for Android Developers,Kotlin in Action,Create a simple Android app
+Android,3,Beginner,Android Studio & SDK,Android Studio Essential Training,Android Development Documentation,Build a single-screen Android app
+Android,5,Intermediate,Android Lifecycle & Components,Android Components Architecture,Android Programming: The Big Nerd Ranch Guide,Manage app lifecycle and components
+Android,6,Intermediate,Android UI & Architecture Components,Advanced Android Development,Android Programming: The Big Nerd Ranch Guide,Build a multi-screen app with database
+Android,7,Intermediate,Local Data Storage,Room Database & Data Persistence,Android Database Programming,Implement offline-first data storage
+Android,8,Advanced,Android Networking,Modern Networking in Android,Android Networking Made Easy,Build an app with REST API integration
+Android,9,Advanced,Android Testing,Android Testing Codelab,Testing Android Applications,Create a comprehensive test suite
+Android,11,Advanced,Android App Architecture,Guide to App Architecture,Android App Architecture,Implement clean architecture
+Android,12,Advanced,Performance Optimization & Kotlin Coroutines,Android Performance Patterns,Advanced Android App Architecture,Create a real-time data processing app
+iOS,1,Beginner,Swift Basics,Swift Programming by Apple,Swift in Depth,Write core Swift programs
+iOS,3,Beginner,iOS Fundamentals,iOS Development with UIKit,iOS Programming: The Big Nerd Ranch Guide,Create a single-view iOS application
+iOS,4,Intermediate,UIKit Fundamentals,Modern UIKit Development,iOS User Interfaces,Build complex iOS UI components
+iOS,5,Intermediate,iOS App Architecture,Clean Architecture for iOS,iOS Architecture Patterns,Implement MVVM architecture
+iOS,7,Intermediate,Core Data & Persistence,Core Data by Tutorials,Mastering Core Data,Create an app with local data persistence
+iOS,10,Advanced,Performance Optimization,Advanced iOS Performance,High Performance iOS Apps,Optimize an iOS application
+iOS,11,Advanced,Advanced Swift Techniques,Advanced Swift,Swift in Depth,Implement advanced Swift patterns
+iOS,12,Advanced,Advanced iOS Frameworks,Advanced iOS App Architecture,Advanced Swift by Chris Eidhof,Create an iOS app with AR features
+Database Engineering,1,Beginner,Database Fundamentals,Databases Demystified,Introduction to Databases,Create entity-relationship diagrams
+Database Engineering,2,Beginner,SQL & Relational Database Concepts,Database Systems Concepts,Database System Concepts by Silberschatz,Design and implement a normalized database
+Database Engineering,3,Beginner,Advanced SQL,Advanced SQL,SQL Performance Explained,Write complex queries and stored procedures
+Database Engineering,5,Intermediate,Database Administration Basics,PostgreSQL Administration,MySQL Administrator's Guide,Set up and manage a database server
+Database Engineering,6,Intermediate,NoSQL & Database Administration,MongoDB University,Seven Databases in Seven Weeks,Implement a hybrid SQL/NoSQL system
+Database Engineering,7,Intermediate,Data Warehousing,The Data Warehouse Toolkit,Data Warehousing Fundamentals,Design a star schema data warehouse
+Database Engineering,9,Advanced,Database Replication & Backup,Replication in Practice,MySQL High Availability,Set up database replication
+Database Engineering,10,Advanced,Distributed Database Systems,Designing Data-Intensive Applications,Distributed Databases,Design a distributed database system
+Database Engineering,12,Advanced,Distributed Databases & Big Data,Distributed Systems Concepts,Designing Data-Intensive Applications,Design a sharded database architecture
+Blockchain,1,Beginner,Blockchain Theory,Blockchain Basics,Mastering Bitcoin,Understand blockchain fundamentals
+Blockchain,2,Beginner,Blockchain Fundamentals,Blockchain Basics by UC Berkeley,Mastering Bitcoin by Andreas Antonopoulos,Create a simple cryptocurrency
+Blockchain,4,Intermediate,Smart Contract Basics,Ethereum & Solidity,Mastering Ethereum,Write basic smart contracts
+Blockchain,6,Intermediate,Smart Contract Development,Ethereum Development Course,Mastering Ethereum,Develop a decentralized application (DApp)
+Blockchain,8,Advanced,Smart Contract Security,Smart Contract Vulnerabilities,Secure Smart Contract Development,Audit and secure smart contracts
+Blockchain,9,Advanced,DeFi Development,DeFi Development,How to DeFi,Build a DeFi application
+QA,1,Beginner,Quality Assurance Basics,Introduction to Software Testing,Lessons Learned in Software Testing,Understand QA fundamentals
+QA,2,Beginner,Manual Testing Fundamentals,ISTQB Foundation Level,Foundations of Software Testing,Create test cases for a web application
+QA,4,Intermediate,Test Management,Agile Testing,Test Management Fundamentals,Plan and manage test cycles
+QA,5,Intermediate,API Testing,REST API Testing,Postman for API Testing,Test RESTful APIs
+QA,7,Intermediate,UI Test Automation,Playwright/Cypress Documentation,Modern Web Testing,Create UI test automation framework
+QA,8,Advanced,Mobile Testing,Mobile Testing Fundamentals,Mobile App Testing Guide,Test mobile applications
+QA,10,Advanced,Security Testing,OWASP Testing Guide,Web Security Testing Cookbook,Perform security testing
+QA,11,Advanced,Test Architecture,Software Test Architecture,Continuous Testing,Design scalable test architecture
+QA,12,Advanced,Performance & Security Testing,Performance Testing with JMeter,The Art of Software Security Assessment,Conduct load and security tests for a web app
+UX Design,1,Beginner,UX Fundamentals,UX Design Fundamentals,Don't Make Me Think,Understand UX principles
+UX Design,2,Beginner,UX Fundamentals & User Research,Google UX Design Certificate,Don't Make Me Think by Steve Krug,Conduct user research and create personas
+UX Design,4,Intermediate,UX Research Methods,Just Enough Research,UX Research,Conduct usability studies
+UX Design,6,Intermediate,Wireframing & Prototyping,Interaction Design Foundation Courses,The Design of Everyday Things,Create interactive prototypes
+UX Design,7,Intermediate,Interaction Design,About Face,Designing Interfaces,Design complex user interactions
+UX Design,8,Advanced,UX Writing,Strategic Writing for UX,Voice and Tone Design,Create a UX content strategy
+UX Design,10,Advanced,Design Systems,Design Systems Handbook,Atomic Design,Create a comprehensive design system
+UX Design,11,Advanced,UX Strategy,UX Strategy,The Jobs to be Done Playbook,Develop product UX strategy
+UX Design,12,Advanced,Design Systems & Advanced UX Strategy,Advanced Interaction Design,About Face: The Essentials of Interaction Design,Develop a comprehensive design system
+Game Developer,1,Beginner,Game Development Basics,Game Development Fundamentals,Game Design Workshop,Understand game development concepts
+Game Developer,2,Beginner,Game Programming Basics,CS50's Introduction to Game Development,Game Coding Complete,Create simple game mechanics
+Game Developer,4,Intermediate,2D Game Development,2D Game Development with Unity,2D Game Programming,Develop game physics and controls
+Game Developer,5,Intermediate,Game AI Fundamentals,AI for Games,Game AI Pro,Implement game AI systems
+Game Developer,7,Intermediate,3D Graphics & Animation,Game Development with Unreal,Real-Time Rendering,Develop a 3D action game
+Game Developer,8,Advanced,Game Physics,Game Physics Engine Development,Physics for Game Developers,Create realistic game physics
+Game Developer,9,Advanced,Shader Programming,The Book of Shaders,Unity Shader Graph,Implement custom rendering effects
+Game Developer,11,Advanced,Game Audio,Game Audio Development,Sound Design for Interactive Media,Create a game audio system
+Game Developer,12,Advanced,Game Systems & Networking,Advanced Game Architecture,Game Engine Architecture by Jason Gregory,Build a multiplayer game with networking
+Technical Writer,1,Beginner,Technical Writing Basics,Technical Writing Process,Docs Like Code,Write clear technical explanations
+Technical Writer,2,Beginner,Technical Writing Fundamentals,Google Technical Writing Course,The Product is Docs,Create a user guide for a software product
+Technical Writer,4,Intermediate,Documentation Planning,Planning and Structuring Documentation,Technical Documentation Process,Create documentation plans
+Technical Writer,5,Intermediate,API Documentation Basics,Write the Docs API Documentation,Docs for Developers,Write basic API documentation
+Technical Writer,6,Intermediate,API Documentation & Tools,API Documentation with Swagger,Docs Like Code,Create comprehensive API documentation
+Technical Writer,8,Advanced,Documentation Tools & Platforms,Docs-as-Code Tools,Modern Technical Writing,Implement a docs-as-code workflow
+Technical Writer,10,Advanced,Localization & Internationalization,The Content Strategy Toolkit,Global Content Strategy,Prepare documentation for localization
+Technical Writer,11,Advanced,Metrics & Documentation Impact,Measuring Documentation Success,Analytics for Technical Docs,Implement documentation analytics
+Technical Writer,12,Advanced,Documentation Strategy & Information Design,DITA Fundamentals,Information Architecture,Develop a documentation portal
+MLOps,1,Beginner,ML Development Lifecycle,ML Engineering Fundamentals,Introduction to MLOps,Understand ML systems lifecycle
+MLOps,2,Beginner,ML Lifecycle & Versioning,MLOps Fundamentals,Building Machine Learning Pipelines,Set up an ML experiment tracking system
+MLOps,4,Intermediate,Data Versioning & Pipelines,DVC Documentation,Data Pipelines with TFX,Create reproducible data pipelines
+MLOps,6,Intermediate,CI/CD for ML & Model Deployment,MLOps on AWS/Azure/GCP,Practical MLOps,Create automated ML pipelines
+MLOps,7,Intermediate,Model Serving & API Creation,TensorFlow Serving,FastAPI for ML,Deploy models as REST APIs
+MLOps,9,Advanced,ML Monitoring,Monitoring ML Models,ML Monitoring in Production,Build monitoring for ML systems
+MLOps,11,Advanced,ML Infrastructure,ML Infrastructure at Scale,KubeFlow Documentation,Build scalable ML infrastructure
+MLOps,12,Advanced,Model Monitoring & Scaling,Advanced MLOps Architecture,Machine Learning Design Patterns,Build a robust ML monitoring system
+Product Manager,1,Beginner,Product Management Basics,Product Management Fundamentals,The Product Book,Understand product management
+Product Manager,2,Beginner,Product Thinking & User Research,Product Management Fundamentals,Inspired by Marty Cagan,Conduct competitive analysis and user interviews
+Product Manager,3,Beginner,User Research & Analysis,Just Enough Research,Validating Product Ideas,Conduct user interviews and surveys
+Product Manager,4,Intermediate,Product Strategy Basics,Product Strategy for Managers,Escaping the Build Trap,Define product vision and strategy
+Product Manager,5,Intermediate,Product Metrics,Lean Analytics,Measure What Matters,Define and track key product metrics
+Product Manager,6,Intermediate,Product Development & Scrum,Agile Product Management,Product Leadership,Create a product roadmap and run sprint planning
+Product Manager,7,Intermediate,Agile Product Management,Scrum Guide,User Story Mapping,Lead agile development processes
+Product Manager,9,Advanced,Growth Product Management,Growth Hacking,Hacking Growth,Develop growth experiments
+Product Manager,10,Advanced,Product Monetization,Monetizing Innovation,Pricing Strategy,Create pricing and monetization models
+Product Manager,11,Advanced,Product Leadership,The Art of Product Management,Leading Product Teams,Lead cross-functional product teams
+Engineering Manager,1,Beginner,Engineering Management Basics,The Manager's Path,An Elegant Puzzle,Understand engineering management
+Engineering Manager,2,Beginner,Team Leadership & Agile Management,Engineering Management 101,The Manager's Path by Camille Fournier,Lead sprint planning and retrospectives
+Engineering Manager,5,Intermediate,People Management,Radical Candor,High Output Management,Conduct effective 1:1s and reviews
+Engineering Manager,6,Intermediate,Engineering Processes & Technical Leadership,Tech Lead Masterclass,Team Topologies,Implement engineering best practices and metrics
+Engineering Manager,7,Intermediate,Engineering Quality & Testing,Leading Quality,The Art of Agile Development,Implement quality standards
+Engineering Manager,8,Advanced,Technical Strategy,Staff Engineer,Technology Strategy Patterns,Define technical roadmaps
+Engineering Manager,9,Advanced,Engineering Culture,The Culture Code,Accelerate,Build high-performing engineering culture
+Engineering Manager,10,Advanced,Scaling Engineering Teams,Scaling Teams,Managing Humans,Scale engineering organizations
+Developer Relations,1,Beginner,Technical Communication & Community Building,Developer Advocacy Fundamentals,Developer Relations by Caroline Lewko,Create developer-focused content and presentations
+Developer Relations,2,Beginner,Technical Communication & Community Building,Developer Advocacy Fundamentals,Developer Relations by Caroline Lewko,Create developer-focused content and presentations
+Developer Relations,3,Intermediate,Developer Programs & Event Management,Advanced DevRel Strategies,The Business Value of Developer Relations,Plan and execute a developer-focused event
+Developer Relations,4,Intermediate,Developer Programs & Event Management,Advanced DevRel Strategies,The Business Value of Developer Relations,Plan and execute a developer-focused event
+Developer Relations,5,Intermediate,Developer Programs & Event Management,Advanced DevRel Strategies,The Business Value of Developer Relations,Plan and execute a developer-focused event
+Developer Relations,7,Advanced,Developer Marketing & Ecosystem Strategy,DevRel Leadership,Developer Marketing and Relations by Adam DuVander,Develop an ecosystem growth strategy
+Developer Relations,8,Advanced,Developer Marketing & Ecosystem Strategy,DevRel Leadership,Developer Marketing and Relations by Adam DuVander,Develop an ecosystem growth strategy
+Developer Relations,9,Expert,Developer Ecosystem Leadership,Developer Platform Strategy,The Business of APIs,Build a developer ecosystem from scratch
+Developer Relations,12,Expert,Developer Ecosystem Leadership,Developer Platform Strategy,The Business of APIs,Build a developer ecosystem from scratch
+Blockchain Engineer,1,Beginner,Blockchain Fundamentals,Blockchain Basics by UC Berkeley,Bitcoin and Cryptocurrency Technologies,Create a simple token contract
+Blockchain Engineer,4,Intermediate,Smart Contract Development,Ethereum Development Course,Mastering Ethereum by Andreas Antonopoulos,Build a decentralized application
+Blockchain Engineer,5,Intermediate,Smart Contract Development,Ethereum Development Course,Mastering Ethereum by Andreas Antonopoulos,Build a decentralized application
+Blockchain Engineer,6,Advanced,DeFi Protocols & Tokenomics,DeFi Development,How to DeFi by CoinGecko,Create a yield farming protocol
+Blockchain Engineer,8,Advanced,DeFi Protocols & Tokenomics,DeFi Development,How to DeFi by CoinGecko,Create a yield farming protocol
+Blockchain Engineer,9,Advanced,DeFi Protocols & Tokenomics,DeFi Development,How to DeFi by CoinGecko,Create a yield farming protocol
+Blockchain Engineer,10,Expert,Layer 2 & Cross-Chain Development,Advanced Blockchain Architecture,Token Economy by Shermin Voshmgir,Build a cross-chain bridge
