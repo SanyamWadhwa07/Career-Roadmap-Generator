@@ -6,3 +6,5 @@ models/
 encoders/
 
 dataset_iteration/
+
+preprocessed_dataset.csv
