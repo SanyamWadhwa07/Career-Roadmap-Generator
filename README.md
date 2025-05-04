@@ -1,7 +1,7 @@
-# Career Roadmap Generator
+# Tech Domain Roadmap Generator
 
 ## 📌 Overview
-The **Career Roadmap Generator** is a personalized tool designed to create structured learning paths for individuals based on their time availability and preferred learning methods. This project integrates **Machine Learning algorithms** to provide adaptive recommendations and ensures an efficient roadmap for various domains, including:
+The **Teach Domain Roadmap Generator** is a personalized tool designed to create structured learning paths for individuals based on their time availability and preferred learning methods. This project integrates **Machine Learning algorithms** to provide adaptive recommendations and ensures an efficient roadmap for various domains, including:
 - Machine Learning
 - Web Development
 - Cybersecurity
