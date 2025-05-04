@@ -153,7 +153,7 @@ def predict_recommendations(domain, level, month_num, top_k=5):
         
         # Load the dataset to find project recommendations
         try:
-            df = pd.read_csv("./dataset_iteration/augmented_dataset.csv")
+            df = pd.read_csv("./data/augmented_dataset.csv")
         except:
             df = None
         
