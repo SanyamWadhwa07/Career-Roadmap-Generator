@@ -151,6 +151,12 @@ def predict_recommendations(domain, level, month_num, top_k=5):
         unique_res1 = joblib.load("models/unique_res1.pkl")
         unique_res2 = joblib.load("models/unique_res2.pkl")
         
+        # Load the dataset to find project recommendations
+        try:
+            df = pd.read_csv("./dataset_iteration/augmented_dataset.csv")
+        except:
+            df = None
+        
         # Make predictions
         with st.spinner("Generating recommendations..."):
             skill_pred = skill_model.predict(X_new_scaled)[0]
@@ -169,11 +175,38 @@ def predict_recommendations(domain, level, month_num, top_k=5):
             
             top_res1 = [(unique_res1[i], res1_sims[i]) for i in top_res1_idx]
             top_res2 = [(unique_res2[i], res2_sims[i]) for i in top_res2_idx]
+            
+            # Get project suggestions based on the top skills
+            top_projects = []
+            if df is not None:
+                for skill, _ in top_skills:
+                    projects = df[df['Skill'] == skill]['Project'].unique().tolist()
+                    for project in projects:
+                        if project and isinstance(project, str) and project.strip():
+                            # Add the project with the confidence score from the associated skill
+                            skill_idx = [s[0] for s in top_skills].index(skill)
+                            confidence = top_skills[skill_idx][1]
+                            top_projects.append((project, confidence))
+                
+                # Remove duplicates while preserving order and keeping highest confidence
+                seen = {}
+                unique_projects = []
+                for project, conf in top_projects:
+                    if project not in seen or conf > seen[project]:
+                        seen[project] = conf
+                
+                # Convert back to list of tuples, sorted by confidence
+                top_projects = [(proj, conf) for proj, conf in seen.items()]
+                top_projects.sort(key=lambda x: x[1], reverse=True)
+                
+                # Limit to top_k
+                top_projects = top_projects[:top_k]
         
         return {
             "skills": top_skills,
             "resource1": top_res1,
-            "resource2": top_res2
+            "resource2": top_res2,
+            "projects": top_projects
         }
     except Exception as e:
         st.error(f"Error in prediction: {str(e)}")
@@ -193,12 +226,12 @@ def load_available_options():
         st.error(f"Error loading options: {str(e)}")
         return [], []
 
-# Function to display recommendations - simplified
+# Function to display recommendations - updated to include projects
 def display_recommendations(recommendations):
     if not recommendations:
         return
     
-    tabs = st.tabs(["Skills", "Primary Resources", "Supplementary Resources"])
+    tabs = st.tabs(["Skills", "Primary Resources", "Supplementary Resources", "Projects"])
     
     with tabs[0]:
         for i, (skill, _) in enumerate(recommendations["skills"], 1):
@@ -211,6 +244,13 @@ def display_recommendations(recommendations):
     with tabs[2]:
         for i, (res, _) in enumerate(recommendations["resource2"], 1):
             st.markdown(f"""<div class="recommendation-card">{i}. {res}</div>""", unsafe_allow_html=True)
+    
+    with tabs[3]:
+        if recommendations.get("projects") and len(recommendations["projects"]) > 0:
+            for i, (project, _) in enumerate(recommendations["projects"], 1):
+                st.markdown(f"""<div class="recommendation-card">{i}. {project}</div>""", unsafe_allow_html=True)
+        else:
+            st.info("No project recommendations found for the selected skills.")
 
 # Main function
 def main():
@@ -246,7 +286,7 @@ def main():
         st.divider()
         
         with st.expander("About"):
-            st.write("This app recommends skills and resources for your Tech domain path based on domain, experience, and time commitment.")
+            st.write("This app recommends skills, resources, and projects for your Tech domain path based on domain, experience, and time commitment.")
     
     # Handle recommendation generation
     if generate_button:
@@ -269,7 +309,12 @@ def main():
             res1_df = pd.DataFrame(recommendations["resource1"], columns=["Primary Resource", "Relevance"])
             res2_df = pd.DataFrame(recommendations["resource2"], columns=["Supplementary Resource", "Relevance"])
             
-            result_df = pd.concat([skills_df, res1_df, res2_df], axis=1)
+            # Add projects to the CSV if available
+            if recommendations.get("projects") and len(recommendations["projects"]) > 0:
+                projects_df = pd.DataFrame(recommendations["projects"], columns=["Project", "Confidence"])
+                result_df = pd.concat([skills_df, res1_df, res2_df, projects_df], axis=1)
+            else:
+                result_df = pd.concat([skills_df, res1_df, res2_df], axis=1)
             
             csv = result_df.to_csv(index=False)
             st.download_button(
