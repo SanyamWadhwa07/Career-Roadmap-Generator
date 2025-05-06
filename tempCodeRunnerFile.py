@@ -7,7 +7,7 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.model_selection import train_test_split, RandomizedSearchCV
 from sklearn.metrics.pairwise import cosine_similarity
 from sentence_transformers import SentenceTransformer
-from sklearn.metrics import make_scorer
+from sklearn.metrics import make_scorer, mean_squared_error, mean_absolute_error
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.neighbors import KNeighborsRegressor
 import matplotlib.pyplot as plt
@@ -20,10 +20,10 @@ os.makedirs("models", exist_ok=True)
 os.makedirs("encoders", exist_ok=True)
 os.makedirs("plots", exist_ok=True)
 
-print("===== Tech Domain Learner =====")
+print("===== Career Roadmap Recommendation System =====")
 
 # Load dataset
-df = pd.read_csv("./data/augmented_dataset.csv")
+df = pd.read_csv("./dataset_iteration/augmented_dataset.csv")
 print(f"Original dataset shape: {df.shape}")
 print(f"Columns: {', '.join(df.columns)}")
 
@@ -37,7 +37,7 @@ print(df['Level'].value_counts())
 df = df.dropna(axis=1, how="all")  # Drop columns that are all NA
 df = df.apply(lambda x: x.str.strip() if x.dtype == "object" else x)
 
-# Convert Month to numeric (fixing the "no of months" typo)
+# Convert Month to numeric (fixing the "no of moths" typo)
 df["Month"] = pd.to_numeric(df["Month"], errors="coerce")
 # Handle potential missing values with median instead of dropping rows
 df["Month"] = df["Month"].fillna(df["Month"].median())
@@ -116,6 +116,29 @@ print("Computing similarity matrices to analyze embedding quality...")
 skill_similarity = cosine_similarity(skill_embeddings)
 res1_similarity = cosine_similarity(res1_embeddings)
 res2_similarity = cosine_similarity(res2_embeddings)
+
+# Plot similarity distribution for diagnostics
+plt.figure(figsize=(15, 5))
+
+plt.subplot(131)
+plt.hist(skill_similarity.flatten(), bins=50)
+plt.title('Skill Embedding Similarities')
+plt.xlabel('Cosine Similarity')
+plt.ylabel('Count')
+
+plt.subplot(132)
+plt.hist(res1_similarity.flatten(), bins=50)
+plt.title('Resource 1 Embedding Similarities')
+plt.xlabel('Cosine Similarity')
+
+plt.subplot(133)
+plt.hist(res2_similarity.flatten(), bins=50)
+plt.title('Resource 2 Embedding Similarities')
+plt.xlabel('Cosine Similarity')
+
+plt.tight_layout()
+plt.savefig('plots/embedding_similarities.png')
+print("Saved similarity analysis plot to plots/embedding_similarities.png")
 
 # Build enhanced feature matrix X and target embeddings
 print("\nPreparing feature matrix...")
@@ -319,7 +342,7 @@ def top_k_accuracy(y_true, y_pred, all_embeddings, k=5):
             correct += 1
     return correct / len(y_true)
 
-# Updated evaluation for KNN and Decision Tree models to calculate only MRR and similarity
+# Evaluate KNN and Decision Tree models
 for model_name, model in zip(["KNN", "Decision Tree"], [KNeighborsRegressor(n_neighbors=5), DecisionTreeRegressor(max_depth=5, random_state=42)]):
     print(f"===== Evaluating {model_name} Model =====")
 
@@ -329,14 +352,21 @@ for model_name, model in zip(["KNN", "Decision Tree"], [KNeighborsRegressor(n_ne
     # Predictions
     y_pred = model.predict(X_test2)
 
+    # RMSE
+    rmse = np.sqrt(mean_squared_error(y_test_res1, y_pred))
+    print(f"Root Mean Squared Error (RMSE): {rmse:.4f}")
+
+    # MAE
+    mae = mean_absolute_error(y_test_res1, y_pred)
+    print(f"Mean Absolute Error (MAE): {mae:.4f}")
+
     # MRR
     mrr = mean_reciprocal_rank(y_test_res1, y_pred)
     print(f"Mean Reciprocal Rank (MRR): {mrr:.4f}")
 
-    # Similarity
-    similarities = [cosine_similarity([pred], [true])[0][0] for pred, true in zip(y_pred, y_test_res1)]
-    avg_similarity = np.mean(similarities)
-    print(f"Average Cosine Similarity: {avg_similarity:.4f}")
+    # Top-5 Accuracy
+    top_5_acc = top_k_accuracy(y_test_res1, y_pred, res1_embeddings, k=5)
+    print(f"Top-5 Accuracy: {top_5_acc:.4f}")
 
 # Save models
 joblib.dump(skill_model, "models/skill_model_advanced.pkl")
@@ -358,18 +388,18 @@ print("Saved feature importance plot to plots/feature_importance.png")
 
 # Create a prediction function for the inference pipeline
 def predict_recommendations(domain, level, month_num, top_k=3):
-    """Make predictions for a new user based on domain, level, and months"""
+    """Make predictions for a new user based on domain, level and months"""
     # Load encoders
     domain_encoder = joblib.load("encoders/label_encoder_domain.pkl")
     level_encoder = joblib.load("encoders/label_encoder_level.pkl")
     domain_level_encoder = joblib.load("encoders/label_encoder_domain_level.pkl")
     domain_month_encoder = joblib.load("encoders/label_encoder_domain_month.pkl")
     scaler = joblib.load("encoders/feature_scaler.pkl")
-
+    
     # Create feature combinations
     domain_level = f"{domain}_{level}"
     domain_month = f"{domain}_{str(month_num)}"
-
+    
     # Encode inputs
     try:
         domain_code = domain_encoder.transform([domain])[0]
@@ -381,52 +411,47 @@ def predict_recommendations(domain, level, month_num, top_k=3):
         print(f"Available domains: {domain_encoder.classes_}")
         print(f"Available levels: {level_encoder.classes_}")
         return None
-
+    
     # Create and scale input array
     X_new = np.array([[domain_code, level_code, month_num, domain_level_code, domain_month_code]])
     X_new_scaled = scaler.transform(X_new)
-
+    
     # Load models and embeddings
     skill_model = joblib.load("models/skill_model_advanced.pkl")
     res1_model = joblib.load("models/res1_model_advanced.pkl")
     res2_model = joblib.load("models/res2_model_advanced.pkl")
-
+    
     skill_embed = np.load("models/skill_embeddings.npy") 
     res1_embed = np.load("models/res1_embeddings.npy")
     res2_embed = np.load("models/res2_embeddings.npy")
-
+    
     unique_skills = joblib.load("models/unique_skills.pkl")
     unique_res1 = joblib.load("models/unique_res1.pkl")
     unique_res2 = joblib.load("models/unique_res2.pkl")
-
+    
     # Make predictions
     skill_pred = skill_model.predict(X_new_scaled)[0]
     res1_pred = res1_model.predict(X_new_scaled)[0]
     res2_pred = res2_model.predict(X_new_scaled)[0]
-
+    
     # Find most similar items
     skill_sims = cosine_similarity([skill_pred], skill_embed)[0]
     res1_sims = cosine_similarity([res1_pred], res1_embed)[0]
     res2_sims = cosine_similarity([res2_pred], res2_embed)[0]
-
+    
     # Get top-k recommendations with similarity scores
     top_skills_idx = np.argsort(skill_sims)[-top_k:][::-1]
     top_res1_idx = np.argsort(res1_sims)[-top_k:][::-1]
     top_res2_idx = np.argsort(res2_sims)[-top_k:][::-1]
-
+    
     top_skills = [(unique_skills[i], skill_sims[i]) for i in top_skills_idx]
     top_res1 = [(unique_res1[i], res1_sims[i]) for i in top_res1_idx]
     top_res2 = [(unique_res2[i], res2_sims[i]) for i in top_res2_idx]
-
-    # Suggest projects based on the top skill
-    top_skill = unique_skills[top_skills_idx[0]]
-    project_suggestions = df[df['Skill'] == top_skill]['Project'].unique().tolist()
-
+    
     return {
         "skills": top_skills,
         "resource1": top_res1,
-        "resource2": top_res2,
-        "projects": project_suggestions
+        "resource2": top_res2
     }
 
 # Print final performance summary
@@ -461,9 +486,5 @@ for domain, level, month in example_inputs:
             print("\nRecommended Resource 2:")  
             for i, (res, sim) in enumerate(recommendations["resource2"], 1):
                 print(f"  {i}. {res} (similarity: {sim:.4f})")
-            
-            print("\nRecommended Projects:")
-            for i, project in enumerate(recommendations["projects"], 1):
-                print(f"  {i}. {project}")
     except Exception as e:
         print(f"Error making prediction: {e}")
