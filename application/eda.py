@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import os
 
 # Load dataset
-df = pd.read_csv('./data/augmented_dataset.csv')  # Update path if necessary
+df = pd.read_csv('../data/augmented_dataset.csv')  # Update path if necessary
 
 # Encode categorical variables for correlation matrix
 df_encoded = df.copy()

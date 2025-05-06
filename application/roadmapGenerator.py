@@ -62,20 +62,20 @@ st.markdown("""
 # Function to check if model files exist
 def check_model_files():
     required_files = [
-        "models/skill_model_advanced.pkl",
-        "models/res1_model_advanced.pkl",
-        "models/res2_model_advanced.pkl",
-        "models/skill_embeddings.npy",
-        "models/res1_embeddings.npy",
-        "models/res2_embeddings.npy",
-        "models/unique_skills.pkl",
-        "models/unique_res1.pkl",
-        "models/unique_res2.pkl",
-        "encoders/label_encoder_domain.pkl",
-        "encoders/label_encoder_level.pkl",
-        "encoders/label_encoder_domain_level.pkl",
-        "encoders/label_encoder_domain_month.pkl",
-        "encoders/feature_scaler.pkl"
+        "application/models/skill_model_advanced.pkl",
+        "application/models/res1_model_advanced.pkl",
+        "application/models/res2_model_advanced.pkl",
+        "application/models/skill_embeddings.npy",
+        "application/models/res1_embeddings.npy",
+        "application/models/res2_embeddings.npy",
+        "application/models/unique_skills.pkl",
+        "application/models/unique_res1.pkl",
+        "application/models/unique_res2.pkl",
+        "application/encoders/label_encoder_domain.pkl",
+        "application/encoders/label_encoder_level.pkl",
+        "application/encoders/label_encoder_domain_level.pkl",
+        "application/encoders/label_encoder_domain_month.pkl",
+        "application/encoders/feature_scaler.pkl"
     ]
     
     missing_files = [file for file in required_files if not os.path.exists(file)]
@@ -86,11 +86,11 @@ def predict_recommendations(domain, level, month_num, top_k=5):
     """Make predictions for a new user based on domain, level and months"""
     try:
         # Load encoders
-        domain_encoder = joblib.load("encoders/label_encoder_domain.pkl")
-        level_encoder = joblib.load("encoders/label_encoder_level.pkl")
-        domain_level_encoder = joblib.load("encoders/label_encoder_domain_level.pkl")
-        domain_month_encoder = joblib.load("encoders/label_encoder_domain_month.pkl")
-        scaler = joblib.load("encoders/feature_scaler.pkl")
+        domain_encoder = joblib.load("application/encoders/label_encoder_domain.pkl")
+        level_encoder = joblib.load("application/encoders/label_encoder_level.pkl")
+        domain_level_encoder = joblib.load("application/encoders/label_encoder_domain_level.pkl")
+        domain_month_encoder = joblib.load("application/encoders/label_encoder_domain_month.pkl")
+        scaler = joblib.load("application/encoders/feature_scaler.pkl")
         
         # Create feature combinations
         domain_level = f"{domain}_{level}"
@@ -139,17 +139,17 @@ def predict_recommendations(domain, level, month_num, top_k=5):
         X_new_scaled = scaler.transform(X_new)
         
         # Load models and embeddings
-        skill_model = joblib.load("models/skill_model_advanced.pkl")
-        res1_model = joblib.load("models/res1_model_advanced.pkl")
-        res2_model = joblib.load("models/res2_model_advanced.pkl")
+        skill_model = joblib.load("application/models/skill_model_advanced.pkl")
+        res1_model = joblib.load("application/models/res1_model_advanced.pkl")
+        res2_model = joblib.load("application/models/res2_model_advanced.pkl")
         
-        skill_embed = np.load("models/skill_embeddings.npy") 
-        res1_embed = np.load("models/res1_embeddings.npy")
-        res2_embed = np.load("models/res2_embeddings.npy")
+        skill_embed = np.load("application/models/skill_embeddings.npy") 
+        res1_embed = np.load("application/models/res1_embeddings.npy")
+        res2_embed = np.load("application/models/res2_embeddings.npy")
         
-        unique_skills = joblib.load("models/unique_skills.pkl")
-        unique_res1 = joblib.load("models/unique_res1.pkl")
-        unique_res2 = joblib.load("models/unique_res2.pkl")
+        unique_skills = joblib.load("application/models/unique_skills.pkl")
+        unique_res1 = joblib.load("application/models/unique_res1.pkl")
+        unique_res2 = joblib.load("application/models/unique_res2.pkl")
         
         # Load the dataset to find project recommendations
         try:
@@ -215,8 +215,8 @@ def predict_recommendations(domain, level, month_num, top_k=5):
 # Function to load available domains and levels
 def load_available_options():
     try:
-        domain_encoder = joblib.load("encoders/label_encoder_domain.pkl")
-        level_encoder = joblib.load("encoders/label_encoder_level.pkl")
+        domain_encoder = joblib.load("application/encoders/label_encoder_domain.pkl")
+        level_encoder = joblib.load("application/encoders/label_encoder_level.pkl")
         
         domains = sorted(domain_encoder.classes_)
         levels = sorted(level_encoder.classes_)
