@@ -23,7 +23,7 @@ os.makedirs("plots", exist_ok=True)
 print("===== Tech Domain Learner =====")
 
 # Load dataset
-df = pd.read_csv("./data/augmented_dataset.csv")
+df = pd.read_csv("../data/augmented_dataset.csv")
 print(f"Original dataset shape: {df.shape}")
 print(f"Columns: {', '.join(df.columns)}")
 
